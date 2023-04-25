@@ -1,0 +1,87 @@
+[2023-04-25T17:55:31.729+0100] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ml_analysis_pipeline.analyze_data manual__2023-04-25T16:52:27.591964+00:00 [queued]>
+[2023-04-25T17:55:31.737+0100] {taskinstance.py:1090} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ml_analysis_pipeline.analyze_data manual__2023-04-25T16:52:27.591964+00:00 [queued]>
+[2023-04-25T17:55:31.737+0100] {taskinstance.py:1288} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T17:55:31.737+0100] {taskinstance.py:1289} INFO - Starting attempt 1 of 1
+[2023-04-25T17:55:31.737+0100] {taskinstance.py:1290} INFO - 
+--------------------------------------------------------------------------------
+[2023-04-25T17:55:31.757+0100] {taskinstance.py:1309} INFO - Executing <Task(PythonOperator): analyze_data> on 2023-04-25 16:52:27.591964+00:00
+[2023-04-25T17:55:31.768+0100] {standard_task_runner.py:55} INFO - Started process 119724 to run task
+[2023-04-25T17:55:31.774+0100] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'ml_analysis_pipeline', 'analyze_data', 'manual__2023-04-25T16:52:27.591964+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/data_ml_pipeline.py', '--cfg-path', '/tmp/tmp59054qh6']
+[2023-04-25T17:55:31.775+0100] {standard_task_runner.py:83} INFO - Job 14: Subtask analyze_data
+[2023-04-25T17:55:31.847+0100] {task_command.py:389} INFO - Running <TaskInstance: ml_analysis_pipeline.analyze_data manual__2023-04-25T16:52:27.591964+00:00 [running]> on host cavemanPC
+[2023-04-25T17:55:31.927+0100] {taskinstance.py:1516} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=ml_analysis_pipeline
+AIRFLOW_CTX_TASK_ID=analyze_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-04-25T16:52:27.591964+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-04-25T16:52:27.591964+00:00
+[2023-04-25T17:55:33.216+0100] {process_utils.py:129} INFO - Sending Signals.SIGTERM to group 119724. PIDs of all processes in the group: [119724]
+[2023-04-25T17:55:33.216+0100] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 119724
+[2023-04-25T17:55:33.217+0100] {taskinstance.py:1488} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-04-25T17:55:33.225+0100] {taskinstance.py:1776} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/cavemhan/Documents/python/test_scripts/cyder-test/dags/common_files/operators/data_operators.py", line 254, in analyze_data
+    self.derive_attributes()
+  File "/home/cavemhan/Documents/python/test_scripts/cyder-test/dags/common_files/operators/data_operators.py", line 236, in derive_attributes
+    self.extract_interests_and_demo()
+  File "/home/cavemhan/Documents/python/test_scripts/cyder-test/dags/common_files/operators/data_operators.py", line 106, in extract_interests_and_demo
+    interests, income_range, is_finance_related = zip(*self.data['metadata.content'].apply(self.extract_interests_and_demo_from_text))
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/pandas/core/series.py", line 4626, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/pandas/core/apply.py", line 1025, in apply
+    return self.apply_standard()
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/pandas/core/apply.py", line 1076, in apply_standard
+    mapped = lib.map_infer(
+  File "pandas/_libs/lib.pyx", line 2834, in pandas._libs.lib.map_infer
+  File "/home/cavemhan/Documents/python/test_scripts/cyder-test/dags/common_files/operators/data_operators.py", line 115, in extract_interests_and_demo_from_text
+    doc = self.nlp(text)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/spacy/language.py", line 1016, in __call__
+    error_handler(name, proc, [doc], e)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/spacy/util.py", line 1689, in raise_error
+    raise e
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/spacy/language.py", line 1011, in __call__
+    doc = proc(doc, **component_cfg.get(name, {}))  # type: ignore[call-arg]
+  File "spacy/pipeline/trainable_pipe.pyx", line 56, in spacy.pipeline.trainable_pipe.TrainablePipe.__call__
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/spacy/util.py", line 1689, in raise_error
+    raise e
+  File "spacy/pipeline/trainable_pipe.pyx", line 52, in spacy.pipeline.trainable_pipe.TrainablePipe.__call__
+  File "spacy/pipeline/transition_parser.pyx", line 253, in spacy.pipeline.transition_parser.Parser.predict
+  File "spacy/pipeline/transition_parser.pyx", line 274, in spacy.pipeline.transition_parser.Parser.greedy_parse
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/model.py", line 315, in predict
+    return self._func(self, X, is_train=False)[0]
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/spacy/ml/tb_framework.py", line 33, in forward
+    step_model = ParserStepModel(
+  File "spacy/ml/parser_model.pyx", line 213, in spacy.ml.parser_model.ParserStepModel.__init__
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/model.py", line 291, in __call__
+    return self._func(self, X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/layers/chain.py", line 55, in forward
+    Y, inc_layer_grad = layer(X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/model.py", line 291, in __call__
+    return self._func(self, X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/layers/chain.py", line 55, in forward
+    Y, inc_layer_grad = layer(X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/model.py", line 291, in __call__
+    return self._func(self, X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/layers/chain.py", line 55, in forward
+    Y, inc_layer_grad = layer(X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/model.py", line 291, in __call__
+    return self._func(self, X, is_train=is_train)
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/layers/list2ragged.py", line 26, in forward
+    return Ragged(model.ops.flatten(Xs), lengths), backprop
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/backends/ops.py", line 294, in flatten
+    xp = get_array_module(X[0])
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/util.py", line 50, in get_array_module
+    if is_numpy_array(arr):
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/thinc/util.py", line 96, in is_numpy_array
+    def is_numpy_array(obj: Any) -> bool:
+  File "/home/cavemhan/.local/share/virtualenvs/cyder-test-QPBcvLjc/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1490, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-04-25T17:55:33.258+0100] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=ml_analysis_pipeline, task_id=analyze_data, execution_date=20230425T165227, start_date=20230425T165531, end_date=20230425T165533
+[2023-04-25T17:55:33.285+0100] {standard_task_runner.py:100} ERROR - Failed to execute job 14 for task analyze_data (Task received SIGTERM signal; 119724)
