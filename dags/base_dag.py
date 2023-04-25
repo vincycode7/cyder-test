@@ -6,7 +6,13 @@ from airflow.operators.subdag_operator import SubDagOperator
 # Import the tasks
 from processing_dag import processing_dag
 from ml_dags import ml_dag
-    
+   
+# TODO: Run Airflow to fix bugs
+# TODO: Move ml code to jupyter notebook
+# TODO: Test docker container
+# TODO: Run code on google colab to test code one time run
+# TODO: Create the presentation slide of 3 - 5 pages.
+
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
