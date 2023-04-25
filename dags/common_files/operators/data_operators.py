@@ -7,6 +7,21 @@ from typing import List, Optional, Tuple
 import nltk
 from collections import Counter
 
+def load_or_download_models():
+    spacy_model_name = 'en_core_web_sm'
+    try:
+        nlp = spacy.load(spacy_model_name)
+    except OSError:
+        spacy.cli.download(spacy_model_name)
+        try:
+            nlp = spacy.load(spacy_model_name)
+        except Exception as e:
+            raise Exception(f"Failed Process Due to {e}")
+    output_dir="outputs/data/"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)  
+    print(f"os.path.exists(output_dir): {os.path.exists(output_dir)}")
+    
 class DataAnalyzer:
     def __init__(self, link_to_csv: str, pii_to_mask=None, pii_to_remove=None, output_file=None, output_dir="outputs/data/"):
         """
