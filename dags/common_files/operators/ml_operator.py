@@ -12,10 +12,9 @@ class FeatureExtractor:
 
     def extract_ml_features_target(self) -> Tuple[pd.DataFrame, pd.Series]:
         # Extract features and target from the processed data
-        df = pd.read_csv(self.input_file)
-        X = df.drop(['metadata.name', 'metadata.content', 'interests', 'is_finance_related'], axis=1)
-        y = df['is_finance_related']
-        return X, y
+        self.df = pd.read_csv(self.input_file)
+        self.df = self.data[['metadata.content', 'is_finance_related']].copy()
+        return self.df
     
 class DataProcessorForML:
     def __init__(self, data: pd.DataFrame):
@@ -29,6 +28,7 @@ class DataProcessorForML:
         target = df['is_finance_related'].apply(lambda x: 1 if x else 0)
 
         # Process text column
+        # TODO: implement save feature extractor
         vectorizer = CountVectorizer(stop_words='english')
         features = vectorizer.fit_transform(df['metadata.content']).todense()
 

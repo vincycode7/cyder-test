@@ -10,12 +10,12 @@ Option2:
     4. install requirements using `pipenv install` or `pip install requirements`
     5. If you used pipenv virtual environment activate using `pipenv shell`
     6. Create a .env file using the .env.example format and set the following variables:
-            i. AIRFLOW_HOME=/absolute/path/to/the/project/locally
-            ii. AIRFLOW__CORE__DAGS_FOLDERS=${AIRFLOW_HOME}/dags
-            iii. AIRFLOW__CORE__PLUGINS_FOLDERS=${AIRFLOW_HOME}/plugins
+            i. `AIRFLOW_HOME=/absolute/path/to/the/project/locally`
+            ii. `AIRFLOW__CORE__DAGS_FOLDERS=${AIRFLOW_HOME}/dags`
+            iii. `AIRFLOW__CORE__PLUGINS_FOLDERS=${AIRFLOW_HOME}/plugins`
     7. If this is your first time running the project, type init db in the terminal to initialize the database.
     8. If this is your first time running the project, type `airflow users create --username admin --firstname FIRST_NAME --lastname LAST_NAME --role Admin --email admin@example.org` to create an admin user feel free to change the values.
-    9. Run the webserver with airflow webserver -p 8080.
+    9. Run the webserver with `airflow webserver -p 8080`.
     10. Open a second terminal while the first one is still running.
     11. Run `airflow scheduler`.
     12. Open your browser and navigate to http://localhost:8080
@@ -81,7 +81,6 @@ Solution:
 
 To remove personally identifiable information from the dataset, we can use the pandas library to drop the columns that contain such information. For example:
 kotlin
-Copy code
 import pandas as pd
 
 # Load data from csv file
@@ -90,8 +89,7 @@ data = pd.read_csv("data.csv")
 # Drop columns that contain personally identifiable information
 data = data.drop(["userId", "ip"], axis=1)
 To derive demographic or interest-based attributes about the individual, we can use a variety of techniques such as data visualization, statistical analysis, and machine learning algorithms. For example, we can create visualizations using matplotlib to identify patterns and trends in the data. We can also use machine learning algorithms like k-means clustering to group individuals with similar characteristics. For example:
-python
-Copy code
+
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
@@ -109,8 +107,7 @@ plt.xlabel("Age")
 plt.ylabel("Income")
 plt.show()
 To identify products the person is interested in, we can use natural language processing techniques to analyze the metadata content column. We can use libraries like nltk and spaCy to perform tasks like tokenization, lemmatization, and named entity recognition. For example:
-python
-Copy code
+
 import nltk
 from nltk.tokenize import word_tokenize
 
@@ -129,8 +126,7 @@ for token_list in tokens:
         if hasattr(entity, "label") and entity.label() == "PRODUCT":
             print(entity)
 To determine if the person is interested in a new product, we can track the frequency and recency of their visits to a particular product's website. We can use libraries like pandas and datetime to analyze the timestamp column and calculate the time since their last visit. For example:
-python
-Copy code
+
 import pandas as pd
 import datetime as dt
 
@@ -153,8 +149,6 @@ else:
 Q: Is this person interested in or was browsing financial products? (Loans, Credit Cards, Mortgages, etc.)
 A: To determine if the person is interested in or was browsing financial products, we can use the domains visited by the person. Financial products are typically offered by specific websites and institutions, and these websites can be identified by their domain names. By examining the URLs in the metadata content column, we can extract the domain names and then compare them against a list of known financial websites. If a user has visited multiple financial websites, it can be inferred that they are interested in financial products. Here's an example code snippet:
 
-python
-Copy code
 import tldextract
 
 # define list of financial domain names
@@ -189,8 +183,6 @@ Social media activity: By monitoring the user's social media activity, we can ga
 
 Here's an example code snippet to collect browser history using the Chrome API:
 
-python
-Copy code
 from chrome import history
 
 # get browser history for the past week

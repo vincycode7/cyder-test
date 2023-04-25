@@ -27,17 +27,15 @@ processing_dag = DAG(
 )
 
 download_spacy_models_task = PythonOperator(
-    task_id='download_spacy_modls',
+    task_id='load_or_download_models',
     python_callable=load_or_download_models,
-    bash_command='echo "download_spacy_models_task is Running"',
     dag=processing_dag
 )
 
 data_processor = DataAnalyzer(link_to_csv='inputs/UserWillChristodoulou_DataScience_TestData.csv')
 analyze_data_task = PythonOperator(
-    task_id='analyze_data',
+    task_id='data_processor',
     python_callable=data_processor.analyze_data,
-    bash_command='echo "analyze_data_task is Running"',
     dag=processing_dag
 )
 
