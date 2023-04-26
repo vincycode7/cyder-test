@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from processing_subdag import processing_analysis_subdag
 from ml_subdag import ml_analysis_subdag
 
-# TODO: Run Airflow to fix bugs
+# TODO: Run Airflow to fix bugs (Done)
 # TODO: Move ml code to jupyter notebook
 # TODO: Test docker container
 # TODO: Run code on google colab to test code one time run

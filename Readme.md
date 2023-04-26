@@ -1,3 +1,6 @@
+# General system flow
+![System Flow Diagram](./outputs/static/Entire_System_Flow.png)
+
 # To run the project, we need to follow these steps:
 
 ### Option1:
@@ -20,7 +23,7 @@
     11. Run `airflow scheduler`.
     12. Open your browser and navigate to http://localhost:8080
     13. Login to the UI with your username and password, which are `admin` and `admin`.
-    14. in the search bar type `ml_analysis_pipeline` 
+    14. in the search bar type `processing_data_with_ml_analysis` 
     15. Once you get the dag and click on the play/run icon by the top-right corner to select trigger to run the dag
     16. Click on the `graph` button to watch dag run and check the displayed status
     17. Done
@@ -33,16 +36,16 @@
     3. Run the Docker container: docker run -p 8080:8080 your_image_name
     4. Open your browser and navigate to http://localhost:8080
     5. Login to the UI with your username and password, which are admin and admin.
-    6. in the search bar type ml_analysis_pipeline
+    6. in the search bar type `processing_data_with_ml_analysis`
     7. Once you get the dag and click on the play/run icon by the top-right corner to select trigger to run the dag
     8. Click on the graph button to watch dag run and check the displayed status
     9. Done
 
-# Solution:
+# Solution Summary:
 
 ### 1.  Q: Remove any personally identifiable information from the dataset
 
-    A: To remove personally identifiable information, we need to identify the columns that contain such information. From the given data, the columns "userId" and "ip" contain personally identifiable information. We can drop these columns using the pandas library.
+    A: To remove personally identifiable information, we need to identify the columns that contain such information. From the given data, the columns "userId" and "ip" contain personally identifiable information. We can drop or mask them out these columns using the pandas library.
 
 ### 2.  Q: Using the data, derive any demographic or interest-based attributes about the individual
 
