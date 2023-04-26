@@ -20,7 +20,6 @@ def load_or_download_models():
     output_dir="outputs/data/"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)  
-    print(f"os.path.exists(output_dir): {os.path.exists(output_dir)}")
     
 class DataAnalyzer:
     def __init__(self, link_to_csv: str, pii_to_mask=None, pii_to_remove=None, output_file=None, output_dir="outputs/data/"):
@@ -31,7 +30,6 @@ class DataAnalyzer:
         data (List[dict]): The data to be analyzed.
         """
         self.data = pd.read_csv(link_to_csv)
-        print(f"output_dir: {output_dir}")
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)   
                      
@@ -262,7 +260,6 @@ class DataAnalyzer:
             output_file (str): The file path of the output CSV file.
         """
         output_file = output_file or self.output_file
-        print(f"save file with : {output_file}")
         self.data.to_csv(output_file, index=False)
 
     def analyze_data(self):
