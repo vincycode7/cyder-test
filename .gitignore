@@ -2,3 +2,4 @@ airflow.cfg
 airflow.db
 .env
 logs
+hide.file
