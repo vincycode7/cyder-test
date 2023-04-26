@@ -5,6 +5,13 @@ from datetime import datetime, timedelta
 from processing_subdag import processing_analysis_subdag
 from ml_subdag import ml_analysis_subdag
 
+# TODO: Run Airflow to fix bugs
+# TODO: Move ml code to jupyter notebook
+# TODO: Test docker container
+# TODO: Run code on google colab to test code one time run
+# TODO: Create the presentation slide of 3 - 5 pages.
+# TODO: Add screenshot of airflow running to github and presentation
+
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,

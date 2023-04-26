@@ -4,7 +4,7 @@
     1. Navigate to the notebook directory and run the `data_ml_pipeline.ipynb` make sure to have the requirements in the `requirements.txt` file installed before running.
 
 ### Option2:
-    1. Clone the repository to your local machine: git clone https://github.com/your_username/your_project.git
+    1. Clone the repository to your local machine: `git clone https://github.com/vincycode7/cyder-test.git`
     2. Change directory into the project: cd your_project
     3. Create a virtual environment using pipenv (optional)
     4. install requirements using `pipenv install` or `pip install requirements`
@@ -27,7 +27,7 @@
 
 ### Option3:
     Running the Docker container
-    1. Clone the repository to your local machine: git clone https://github.com/your_username/your_project.git
+    1. Clone the repository to your local machine: `git clone https://github.com/vincycode7/cyder-test.git`
     2. Change directory into the project: cd your_project
     3. Build the Docker image: docker build -t your_image_name .
     3. Run the Docker container: docker run -p 8080:8080 your_image_name
