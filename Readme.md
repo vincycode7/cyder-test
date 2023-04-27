@@ -4,9 +4,12 @@
 # To run the project, we need to follow these steps:
 
 ### Option1:
+    Run using google colab:
+    Use link: https://colab.research.google.com/drive/1tL_sVswAplZlZ9TbGVMZQ5YtZFWqOtC-?usp=sharing
+### Option2:
     1. Navigate to the notebook directory and run the `data_ml_pipeline.ipynb` make sure to have the requirements in the `requirements.txt` file installed before running.
 
-### Option2:
+### Option3:
     1. Clone the repository to your local machine: `git clone https://github.com/vincycode7/cyder-test.git`
     2. Change directory into the project: cd your_project
     3. Create a virtual environment using pipenv (optional)
@@ -28,7 +31,7 @@
     16. Click on the `graph` button to watch dag run and check the displayed status
     17. Done
 
-### Option3:
+### Option4:
     Running the Docker container
     1. Clone the repository to your local machine: `git clone https://github.com/vincycode7/cyder-test.git`
     2. Change directory into the project: cd your_project
@@ -41,6 +44,9 @@
     8. Click on the graph button to watch dag run and check the displayed status
     9. Done
 
+# Presentation:
+    Use link to access slides: https://docs.google.com/presentation/d/1FMASxynigOSQkRXoiPDQtHRwvymuZMaP8BAAsIYukXE/edit?usp=sharing
+    
 # Solution Summary:
 
 ### 1.  Q: Remove any personally identifiable information from the dataset
